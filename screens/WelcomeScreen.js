@@ -12,7 +12,7 @@ import {
 
 import SantaAnimation from '../components/SantaClaus.js';
 import db from '../config';
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 
 
 
@@ -38,11 +38,11 @@ export default class WelcomeScreen extends Component{
      firebase.auth().createUserWithEmailAndPassword(emailId, password)
      .then(()=>{
        db.collection('users').add({
-         first_name:this.state.firstName,
-         last_name:this.state.lastName,
-         contact:this.state.contact,
-         email_id:this.state.emailId,
-         address:this.state.address
+         'first_name':this.state.firstName,
+         'last_name':this.state.lastName,
+         'contact':this.state.contact,
+         'email_id':this.state.emailId,
+         'address':this.state.address
        })
        return  Alert.alert(
             'User Added Successfully',
@@ -147,7 +147,7 @@ showModal = ()=>{
           }}
         /><TextInput
           style={styles.formTextInput}
-          placeholder ={"Confrim Password"}
+          placeholder ={"Confirm Password"}
           secureTextEntry = {true}
           onChangeText={(text)=>{
             this.setState({
@@ -189,7 +189,7 @@ showModal = ()=>{
             this.showModal()
           }
         <View style={{justifyContent:'center', alignItems:'center'}}>
-          <SantaAnimation/>
+          
           <Text style={styles.title}>Book Santa</Text>
         </View>
         <View>
